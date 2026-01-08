@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VLUTE Photobooth</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <h1>VLUTE Photobooth</h1>
+          <p>4-shot strip • frame overlay • webcam</p>
+        </div>
+
+        <div class="pill">
+          <label for="flipToggle">Mirror camera</label>
+          <input id="flipToggle" type="checkbox" checked />
+        </div>
+      </div>
+
+      <main class="grid">
+        <!-- LEFT: Camera -->
+        <section class="card">
+          <div class="cardhead">
+            <h2>Camera Preview</h2>
+            <div class="sub">Tip: use Live Server (webcam won’t work on file://)</div>
+          </div>
+
+          <div class="preview">
+            <video id="video" autoplay playsinline></video>
+            <div class="previewGlow"></div>
+            <div id="countdown" class="countdown hidden"></div>
+            <div id="shotBadge" class="shot-badge hidden"></div>
+          </div>
+
+          <div class="controls">
+            <button id="btnStart" class="primary">Start Camera</button>
+            <button id="btnRun" class="primary" disabled>Take 4 Photos</button>
+            <button id="btnReset" class="danger" disabled>Reset</button>
+          </div>
+
+          <div class="small">
+            Shortcut vibes: press <kbd>Space</kbd> to take 4 photos after camera starts.
+          </div>
+        </section>
+
+        <!-- RIGHT: Result -->
+        <section class="card">
+          <div class="cardhead">
+            <h2>Result Strip</h2>
+            <div class="sub">Exports as PNG</div>
+          </div>
+
+          <div class="canvasWrap">
+            <canvas id="strip" width="682" height="2048"></canvas>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="controls">
+            <button id="btnDownload" disabled>Download PNG</button>
+            <button id="btnPrint" disabled>Print</button>
+          </div>
+
+          <div class="small">
+            Canvas is exactly your frame size: <b>682×2048 px</b>.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
